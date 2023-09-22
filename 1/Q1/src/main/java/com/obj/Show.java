@@ -4,6 +4,7 @@ package com.obj;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 
 public class Show
@@ -16,7 +17,7 @@ public class Show
     private final long cancelMinWin;
     private final boolean[][] seatOccupied;
 
-    private final Map<Integer, Ticket> ticketInfo = new HashMap<>();
+    private final Map<Integer, Ticket> ticketInfo = new TreeMap<>();
 
     public  Show(int r, int c, long min)
     {
@@ -24,7 +25,8 @@ public class Show
         row =r;
         col = c;
         seatOccupied = new boolean[row][col];
-        cancelMinWin = min;
+        /* millisecond work well in this scenario */
+        cancelMinWin = min * 60  * 1000 ;
 
     }
 
@@ -73,13 +75,15 @@ public class Show
         return ticketInfo;
     }
 
-    public void PrintBuyerInfo()
+    public StringBuilder PrintBuyerInfo()
     {
-
+        StringBuilder sb = new StringBuilder();
         if(ticketInfo.isEmpty())
-            System.out.println("No buyer.");
-        ticketInfo.forEach((k, v) -> System.out.println("Ticket Number:" +  v.getTicketNo() + "  Phone Number:" + k + "  Seat Number:" + v.getSeatInfo()));
-        System.out.println("================================================================================");
+            sb.append("No buyer.");
+        ticketInfo.forEach((k, v) -> sb.append("Ticket Number:" +  v.getTicketNo() + " Phone Number:" + k + " Seat Number:" + v.getSeatInfo() + "\n"));
+        sb.append("================================================================================");
+
+        return sb;
     }
 
     public StringBuilder PrintAllAvailableSeat()

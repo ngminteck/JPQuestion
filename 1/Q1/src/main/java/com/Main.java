@@ -13,15 +13,11 @@ public class Main {
     public static void main(String[] args)
     {
 
-
         Map<Integer, Show> showList = new TreeMap<>();
-
-
-        IO io = new IO();
-
         Screen mainmenu = new Screen();
         AdminScreen adminScreen = new AdminScreen();
         BuyerScreen buyerScreen = new BuyerScreen();
+        IO io = new IO();
 
         while(true)
         {
@@ -45,7 +41,7 @@ public class Main {
 
                         Show selectedShow = showList.get(adminViewOption);
                         System.out.println(adminScreen.PrintShowNumberHeader(adminViewOption));
-                        selectedShow.PrintBuyerInfo();
+                        System.out.println(selectedShow.PrintBuyerInfo());
                         io.ScreenContinue();
                     }
                     else
@@ -68,12 +64,12 @@ public class Main {
 
                         Show selectedShow = showList.get(buyerViewOption);
                         String msg = buyerScreen.PrintShowNumberHeader(buyerViewOption) + selectedShow.PrintAllAvailableSeat() + buyerScreen.DisplayBookInstruction();
-                        io.BookInput(msg, buyerViewOption,selectedShow);
+                        io.BookingInput(msg, buyerViewOption,selectedShow);
 
                     }
                     else if (buyerOption == 2)
                     {
-                        io.CancelInput(buyerScreen.DisplayCancelBookingScreenInstruction(), showList);
+                        io.CancelBookingInput(buyerScreen.DisplayCancelBookingScreenInstruction(), showList);
 
                     }
                     else
