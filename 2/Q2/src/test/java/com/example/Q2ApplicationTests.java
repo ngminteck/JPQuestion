@@ -48,7 +48,7 @@ class Q2ApplicationTests {
         result= inputVerfiy.VerfiyInput("\"3,4,N\" \"f,f,r,f,f\" \"3,5,N\" \"r\"", logic);
         assertEquals(true, result);
         System.out.println();
-        result= inputVerfiy.VerfiyInput("\"3,4,N\" \"f,f,r,f,f\" \"-3,-4,N\" \"f,f,r,f,f\"", logic);
+        result= inputVerfiy.VerfiyInput("\"3,4,N\" \"f,f,r,f,f\" \"-3,-4,N\" \"f,f,r,f\"", logic);
         assertEquals(true, result);
         System.out.println();
 
