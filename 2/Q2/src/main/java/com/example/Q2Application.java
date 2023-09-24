@@ -1,9 +1,19 @@
-package org.example;
-import java.util.*;
+package com.example;
 
-public class Main {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Scanner;
+
+@SpringBootApplication
+public class Q2Application {
+
     public static void main(String[] args)
     {
+        SpringApplication.run(Q2Application.class, args);
+
         Scanner sc = new Scanner(System.in).useDelimiter("\n");
         Logic logic = new Logic();
         while(true)
@@ -117,5 +127,7 @@ public class Main {
 
         }
 
+
     }
+
 }
