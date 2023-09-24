@@ -2,22 +2,26 @@ package org.example;
 
 public class Rover
 {
-    float x;
-    float y;
-    int dir;
+    private int x;
+    private int y;
+    private int dir;
 
-    Rover(float posX, float posY, int facing)
+
+
+
+    Rover(int posX, int posY, int facing)
     {
         x = posX;
         y = posY;
         dir = facing;
+
     }
 
-    public float getX() {
+    public int getX() {
         return x;
     }
 
-    public float getY() {
+    public int getY() {
         return y;
     }
 
@@ -52,25 +56,25 @@ public class Rover
     public void MoveForward()
     {
         if(dir == 1)
-            y = y + 1.0f;
+            y = y + 1;
         if(dir == 2)
-            x = x + 1.0f;
+            x = x + 1;
         if(dir == 3)
-            y = y -1.0f;
+            y = y -1;
         if(dir == 4)
-            x = x - 1.0f;
+            x = x - 1;
     }
 
     public void MoveBackward()
     {
         if(dir == 1)
-            y = y - 1.0f;
+            y = y - 1;
         if(dir == 2)
-            x = x - 1.0f;
+            x = x - 1;
         if(dir == 3)
-            y = y  + 1.0f;
+            y = y  + 1;
         if(dir == 4)
-            x = x  + 1.0f;
+            x = x  + 1;
     }
 
 }
